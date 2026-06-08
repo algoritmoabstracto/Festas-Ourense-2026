@@ -31,9 +31,8 @@
   <div id="splash-screen" class="splash-container">
     <div class="splash-overlay"></div>
     <div class="splash-content">
-      <img src="assets/logo.png" alt="Concello de Ourense" class="splash-logo">
-      <h1 class="splash-title">Festas de Ourense</h1>
-      <div class="splash-badge" id="splash-date-badge">17 a 21 de xuño 2026</div>
+      <h1 class="splash-title">Festas de Ourense 2026</h1>
+      <div class="splash-badge" id="splash-date-badge">17 a 21 de xuño</div>
       <button id="btn-enter" class="btn-primary-ripple">Ver Programa</button>
     </div>
     <div class="splash-footer" id="splash-footer-text">
@@ -72,23 +71,21 @@
       </div>
     </section>
 
-    <!-- Navigation Tabs (horizontal scrolling on mobile) -->
-    <nav class="tabs-nav">
-      <div class="tabs-scroll-container">
-        <button class="tab-btn active" id="tab-btn-all" data-tab="all">Xerais</button>
-        <button class="tab-btn" data-tab="17">Mér 17</button>
-        <button class="tab-btn" data-tab="18">Xov 18</button>
-        <button class="tab-btn" data-tab="19">Ven 19</button>
-        <button class="tab-btn" data-tab="20">Sáb 20</button>
-        <button class="tab-btn" data-tab="21">Dom 21</button>
-        <button class="tab-btn tab-btn-fav" id="tab-btn-fav" data-tab="favorites">
-          <span class="fav-icon-wrapper">
-            <svg class="star-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          </span>
-          <span id="fav-tab-label">Favoritos</span>
-        </button>
+    <!-- Date Select and Favorites Controls Section -->
+    <section class="controls-section">
+      <div class="select-wrapper">
+        <select id="date-select" aria-label="Seleccionar día">
+          <!-- Options rendered dynamically in app.js -->
+        </select>
       </div>
-    </nav>
+      <button id="btn-show-favs" class="btn-favs-toggle" aria-label="Ver favoritos">
+        <span class="favs-toggle-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </span>
+        <span id="favs-toggle-label">Favoritos</span>
+        <span id="favs-toggle-count" class="favs-count-pill">0</span>
+      </button>
+    </section>
 
     <!-- Events Content -->
     <main class="events-main">
@@ -122,7 +119,7 @@
     <!-- Footer of main page -->
     <footer class="app-footer">
       <p id="footer-info-link">Máis información en <a href="https://ourense.gal" target="_blank" rel="noopener">ourense.gal</a></p>
-      <p class="copyright">Concello de Ourense &copy; 2026</p>
+      <p class="copyright">&copy; 2026 <a href="https://algoritmoabstracto.qd.je/" target="_blank" rel="noopener">Algoritmo Abstracto</a></p>
     </footer>
   </div>
 

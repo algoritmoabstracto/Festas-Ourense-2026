@@ -288,7 +288,7 @@ const EVENTS_DATA = [
     mapsQuery: "Praza de Concepción Arenal, Ourense",
     altStyle: false,
     startHour: 1, startMin: 0, startDay: 20,
-    endHour: 3, endMin: 30, endDay: 20,
+    endHour: 3, startMin: 30, endDay: 20,
     gl: {
       title: "América",
       datesText: "Venres, <strong>19</strong> de xuño (madrugada)",
@@ -527,22 +527,19 @@ let currentLang = localStorage.getItem('ourense_lang') || 'gl';
 // Translations Dictionary for UI Elements
 const UI_TRANSLATIONS = {
   gl: {
-    splashTitle: "Festas de Ourense",
-    splashDate: "17 a 21 de xuño 2026",
+    splashTitle: "Festas de Ourense 2026",
+    splashDate: "17 a 21 de xuño",
     btnEnter: "Ver Programa",
     splashFooter: "Máis información en ourense.gal",
     headerTitle: "Festas de Ourense",
     headerDate: "17 a 21 de xuño 2026",
     searchPlaceholder: "Buscar orquestra, concerto, lugar...",
-    tabAll: "Xerais",
     tabFav: "Favoritos",
     eventLabel: "evento",
     eventsLabel: "eventos",
     dateHeaderAll: "Eventos Xerais / Varios días",
     dateHeaderFav: "Os meus Favoritos ⭐",
     dateHeaderDay: "{day} de xuño",
-    dateHeaderPrefixGl: "",
-    dateHeaderPrefixEs: "",
     emptyFavTitle: "Ningún favorito gardado",
     emptyFavDesc: "Preme na estrela dos teus eventos preferidos para atopalos aquí rapidamente.",
     emptySearchTitle: "Sen resultados",
@@ -551,38 +548,31 @@ const UI_TRANSLATIONS = {
     labelTime: "Horario:",
     labelPlace: "Lugar:",
     btnMaps: "Google Maps",
-    btnShare: "Compartir",
     statusLive: "En directo 🔴",
     statusToday: "Hoxe",
     statusUpcoming: "Próximamente",
     statusPast: "Finalizado",
     toastFavSaved: "⭐ Gardado: ",
     toastFavRemoved: "Eliminado: ",
-    toastCopied: "Copiado ao portapapeles! Listo para compartir.",
-    toastCopyError: "Erro ao copiar.",
     pwaTitle: "Engadir á pantalla de inicio",
     pwaDesc: "Accede ao programa ao instante, incluso sen internet.",
     pwaCancel: "Agora non",
-    pwaInstall: "Instalar",
-    shareTextPrefix: "Festas de Ourense 2026: Non te perdas "
+    pwaInstall: "Instalar"
   },
   es: {
-    splashTitle: "Fiestas de Ourense",
-    splashDate: "17 a 21 de junio 2026",
+    splashTitle: "Fiestas de Ourense 2026",
+    splashDate: "17 a 21 de junio",
     btnEnter: "Ver Programa",
     splashFooter: "Más información en ourense.gal",
     headerTitle: "Fiestas de Ourense",
     headerDate: "17 a 21 de junio 2026",
     searchPlaceholder: "Buscar orquesta, concierto, lugar...",
-    tabAll: "Generales",
     tabFav: "Favoritos",
     eventLabel: "evento",
     eventsLabel: "eventos",
     dateHeaderAll: "Eventos Generales / Varios días",
     dateHeaderFav: "Mis Favoritos ⭐",
     dateHeaderDay: "{day} de junio",
-    dateHeaderPrefixGl: "",
-    dateHeaderPrefixEs: "",
     emptyFavTitle: "Ningún favorito guardado",
     emptyFavDesc: "Pulsa en la estrella de tus eventos preferidos para encontrarlos aquí rápidamente.",
     emptySearchTitle: "Sin resultados",
@@ -591,20 +581,16 @@ const UI_TRANSLATIONS = {
     labelTime: "Horario:",
     labelPlace: "Lugar:",
     btnMaps: "Google Maps",
-    btnShare: "Compartir",
     statusLive: "En directo 🔴",
     statusToday: "Hoy",
     statusUpcoming: "Próximamente",
     statusPast: "Finalizado",
     toastFavSaved: "⭐ Guardado: ",
     toastFavRemoved: "Eliminado: ",
-    toastCopied: "¡Copiado al portapapeles! Listo para compartir.",
-    toastCopyError: "Error al copiar.",
     pwaTitle: "Añadir a la pantalla de inicio",
     pwaDesc: "Accede al programa al instante, incluso sin internet.",
     pwaCancel: "Ahora no",
-    pwaInstall: "Instalar",
-    shareTextPrefix: "Fiestas de Ourense 2026: No te pierdas "
+    pwaInstall: "Instalar"
   }
 };
 
@@ -612,7 +598,11 @@ const UI_TRANSLATIONS = {
 const splashScreen = document.getElementById('splash-screen');
 const appContainer = document.getElementById('app-container');
 const btnEnter = document.getElementById('btn-enter');
-const tabButtons = document.querySelectorAll('.tab-btn');
+const dateSelect = document.getElementById('date-select');
+const btnShowFavs = document.getElementById('btn-show-favs');
+const favsToggleLabel = document.getElementById('favs-toggle-label');
+const favsToggleCount = document.getElementById('favs-toggle-count');
+
 const tabTitle = document.getElementById('tab-title');
 const eventCount = document.getElementById('event-count');
 const eventsList = document.getElementById('events-list');
@@ -629,9 +619,6 @@ const splashDateEl = document.getElementById('splash-date-badge');
 const splashFooterEl = document.getElementById('splash-footer-text');
 const headerTitleEl = document.querySelector('.header-main-title');
 const headerDateEl = document.getElementById('header-date-badge');
-const tabBtnAllEl = document.getElementById('tab-btn-all');
-const tabBtnFavEl = document.getElementById('tab-btn-fav');
-const favTabLabelEl = document.getElementById('fav-tab-label');
 const pwaTitleEl = document.getElementById('pwa-banner-title');
 const pwaDescEl = document.getElementById('pwa-banner-desc');
 const pwaBtnCancel = document.getElementById('pwa-btn-cancel');
@@ -647,6 +634,7 @@ initApp();
 
 function initApp() {
   setLanguage(currentLang);
+  updateFavoritesBadge();
   renderEvents();
 }
 
@@ -677,8 +665,7 @@ function setLanguage(lang) {
   
   headerTitleEl.textContent = t.headerTitle;
   headerDateEl.textContent = t.headerDate;
-  tabBtnAllEl.textContent = t.tabAll;
-  favTabLabelEl.textContent = t.tabFav;
+  favsToggleLabel.textContent = t.tabFav;
   searchInput.placeholder = t.searchPlaceholder;
   
   pwaTitleEl.textContent = t.pwaTitle;
@@ -688,8 +675,49 @@ function setLanguage(lang) {
   
   footerLinkEl.innerHTML = `${lang === 'gl' ? 'Máis' : 'Más'} información en <a href="https://ourense.gal" target="_blank" rel="noopener">ourense.gal</a>`;
 
+  // Repopulate date select dropdown
+  populateDateSelect();
+  
   updateTabTitle();
   renderEvents();
+}
+
+// Populate Selector Options dynamically based on language
+function populateDateSelect() {
+  const previousValue = dateSelect.value || currentTab;
+  
+  const optionsGL = [
+    { value: 'all', text: 'Eventos Xerais / Varios días' },
+    { value: '17', text: 'Mércores, 17 de xuño' },
+    { value: '18', text: 'Xoves, 18 de xuño' },
+    { value: '19', text: 'Venres, 19 de xuño' },
+    { value: '20', text: 'Sábado, 20 de xuño' },
+    { value: '21', text: 'Domingo, 21 de xuño' }
+  ];
+  
+  const optionsES = [
+    { value: 'all', text: 'Eventos Generales / Varios días' },
+    { value: '17', text: 'Miércoles, 17 de junio' },
+    { value: '18', text: 'Jueves, 18 de junio' },
+    { value: '19', text: 'Viernes, 19 de junio' },
+    { value: '20', text: 'Sábado, 20 de junio' },
+    { value: '21', text: 'Domingo, 21 de junio' }
+  ];
+  
+  const options = currentLang === 'gl' ? optionsGL : optionsES;
+  
+  dateSelect.innerHTML = '';
+  options.forEach(opt => {
+    const el = document.createElement('option');
+    el.value = opt.value;
+    el.textContent = opt.text;
+    dateSelect.appendChild(el);
+  });
+  
+  // Restore value if it was a valid date select option
+  if (previousValue !== 'favorites') {
+    dateSelect.value = previousValue;
+  }
 }
 
 // 3. Splash Screen Fade Out Logic
@@ -702,16 +730,26 @@ btnEnter.addEventListener('click', () => {
   }, 600);
 });
 
-// 4. Navigation Tab Click Handler
-tabButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    tabButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-    currentTab = button.getAttribute('data-tab');
-    
-    updateTabTitle();
-    renderEvents();
-  });
+// 4. Navigation dropdown change handler
+dateSelect.addEventListener('change', (e) => {
+  currentTab = e.target.value;
+  btnShowFavs.classList.remove('active');
+  updateTabTitle();
+  renderEvents();
+});
+
+// Navigation favorites toggle handler
+btnShowFavs.addEventListener('click', () => {
+  if (currentTab === 'favorites') {
+    // Switch back to the dropdown day
+    currentTab = dateSelect.value;
+    btnShowFavs.classList.remove('active');
+  } else {
+    currentTab = 'favorites';
+    btnShowFavs.classList.add('active');
+  }
+  updateTabTitle();
+  renderEvents();
 });
 
 // Update Header Title depending on current tab
@@ -864,10 +902,6 @@ function renderEvents() {
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
           ${t.btnMaps}
         </button>
-        <button class="btn-card-action btn-share" onclick="shareEvent('${data.title}', '${data.location}', '${data.timeText}')">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-          ${t.btnShare}
-        </button>
       </div>
     `;
     
@@ -927,34 +961,19 @@ function toggleFavorite(id) {
   }
   
   localStorage.setItem('ourense_favs', JSON.stringify(favorites));
+  updateFavoritesBadge();
   renderEvents();
+}
+
+// Update the numerical badge on favorites toggle button
+function updateFavoritesBadge() {
+  favsToggleCount.textContent = favorites.length;
 }
 
 // 10. Open Google Maps search in new tab
 window.openMap = function(query) {
   const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
   window.open(url, '_blank');
-};
-
-// 11. Share Event Logic
-window.shareEvent = function(title, location, time) {
-  const t = UI_TRANSLATIONS[currentLang];
-  const shareText = `${t.shareTextPrefix}"${title}" en "${location}" (${time}). ${currentLang === 'gl' ? 'Consulta o programa oficial no móbil!' : '¡Consulta el programa oficial en el móvil!'}`;
-  
-  if (navigator.share) {
-    navigator.share({
-      title: title,
-      text: shareText,
-      url: window.location.href
-    }).catch(console.error);
-  } else {
-    // Copy to clipboard fallback
-    navigator.clipboard.writeText(shareText).then(() => {
-      showToast(t.toastCopied);
-    }).catch(() => {
-      showToast(t.toastCopyError);
-    });
-  }
 };
 
 // 12. Toast Notification Helper
