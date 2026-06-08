@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Festas de Ourense 2026</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Programa oficial, interactivo e optimizado para móbiles das Festas de Ourense 2026. Abre localizacións en Google Maps e garda os teus eventos favoritos.">
+  <meta name="theme-color" content="#081b33">
+  
+  <!-- PWA & Mobile Web App Capable -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Festas Ourense">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  
+  <!-- CSS Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Screen 1: Splash Screen / Portada -->
+  <div id="splash-screen" class="splash-container">
+    <div class="splash-overlay"></div>
+    <div class="splash-content">
+      <img src="assets/logo.png" alt="Concello de Ourense" class="splash-logo">
+      <h1 class="splash-title">Festas de Ourense</h1>
+      <div class="splash-badge">17 a 21 de xuño 2026</div>
+      <button id="btn-enter" class="btn-primary-ripple">Ver Programa</button>
+    </div>
+    <div class="splash-footer">
+      Máis información en ourense.gal
+    </div>
+  </div>
+
+  <!-- Screen 2: Main App Screen -->
+  <div id="app-container" class="app-main hidden">
+    <!-- Top Header Bar -->
+    <header class="app-header">
+      <div class="header-logo-container">
+        <img src="assets/logo.png" alt="Concello de Ourense" class="header-logo">
+      </div>
+      <div class="header-titles">
+        <h2 class="header-main-title">Festas de Ourense</h2>
+        <div class="header-badge">17 a 21 de xuño 2026</div>
+      </div>
+    </header>
+
+    <!-- Search and Filter Bar -->
+    <section class="search-section">
+      <div class="search-wrapper">
+        <span class="search-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </span>
+        <input type="text" id="search-input" placeholder="Buscar orquestra, concerto, lugar..." autocomplete="off">
+        <button id="search-clear-btn" class="search-clear-btn hidden" aria-label="Limpar busca">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs (horizontal scrolling on mobile) -->
+    <nav class="tabs-nav">
+      <div class="tabs-scroll-container">
+        <button class="tab-btn active" data-tab="all">Xerais</button>
+        <button class="tab-btn" data-tab="17">Mér 17</button>
+        <button class="tab-btn" data-tab="18">Xov 18</button>
+        <button class="tab-btn" data-tab="19">Ven 19</button>
+        <button class="tab-btn" data-tab="20">Sáb 20</button>
+        <button class="tab-btn" data-tab="21">Dom 21</button>
+        <button class="tab-btn tab-btn-fav" data-tab="favorites">
+          <span class="fav-icon-wrapper">
+            <svg class="star-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </span>
+          Favoritos
+        </button>
+      </div>
+    </nav>
+
+    <!-- Events Content -->
+    <main class="events-main">
+      <!-- Active Tab Header (Shows day name / count of favorites) -->
+      <div class="tab-header-info">
+        <h3 id="tab-title">Eventos Xerais / Varios días</h3>
+        <span id="event-count" class="event-count-badge">0 eventos</span>
+      </div>
+
+      <!-- Events List Container -->
+      <div id="events-list" class="events-list">
+        <!-- Rendered dynamically via app.js -->
+      </div>
+    </main>
+
+    <!-- PWA Install Prompt Banner -->
+    <div id="pwa-install-banner" class="pwa-banner hidden">
+      <div class="pwa-banner-content">
+        <img src="assets/icon-192.png" alt="App Icon" class="pwa-banner-icon">
+        <div class="pwa-banner-text">
+          <h4>Engadir á pantalla de inicio</h4>
+          <p>Accede ao programa ao instante, incluso sen internet.</p>
+        </div>
+      </div>
+      <div class="pwa-banner-actions">
+        <button id="pwa-btn-cancel" class="btn-text">Agora non</button>
+        <button id="pwa-btn-install" class="btn-accent">Instalar</button>
+      </div>
+    </div>
+
+    <!-- Footer of main page -->
+    <footer class="app-footer">
+      <p>Máis información en <a href="https://ourense.gal" target="_blank" rel="noopener">ourense.gal</a></p>
+      <p class="copyright">Concello de Ourense &copy; 2026</p>
+    </footer>
+  </div>
+
+  <!-- JavaScript App Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
