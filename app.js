@@ -1,326 +1,520 @@
-// Database of Events from the Festas de Ourense 2026 program
+// Database of Events from the Festas de Ourense 2026 program (Bilingual GL / ES)
 const EVENTS_DATA = [
   // Multi-day / General events
   {
     id: "g1",
-    title: "Mercado Medieval",
     category: "xerais",
     days: ["all", "17", "18", "19", "20", "21"],
-    datesText: "Do mércores <strong>17</strong> ao domingo <strong>21</strong>",
-    timeText: "Apertura: mércores 17 ás 17.00 h. Horario: 11.00 a 01.00 h (domingo até as 22.00 h)",
-    location: "Contorna da Ponte Romana",
     mapsQuery: "Ponte Romana, Ourense",
     altStyle: false,
-    // Date ranges for live state check
     startHour: 17, startMin: 0, startDay: 17,
-    endHour: 22, endMin: 0, endDay: 21
+    endHour: 22, endMin: 0, endDay: 21,
+    gl: {
+      title: "Mercado Medieval",
+      datesText: "Do mércores <strong>17</strong> ao domingo <strong>21</strong>",
+      timeText: "Apertura: mércores 17 ás 17.00 h. Horario: 11.00 a 01.00 h (domingo até as 22.00 h)",
+      location: "Contorna da Ponte Romana"
+    },
+    es: {
+      title: "Mercado Medieval",
+      datesText: "Del miércoles <strong>17</strong> al domingo <strong>21</strong>",
+      timeText: "Apertura: miércoles 17 a las 17:00 h. Horario: 11:00 a 01:00 h (domingo hasta las 22:00 h)",
+      location: "Entorno del Puente Romano"
+    }
   },
   {
     id: "g2",
-    title: "Atraccións",
     category: "xerais",
     days: ["all", "17", "18", "19", "20", "21"],
-    datesText: "Do mércores <strong>17</strong> ao domingo <strong>21</strong>",
-    timeText: "Mér, xov e ven: 19.00 a 02.00 h. Sáb: 17.00 a 02.00 h. Dom: 17.00 a 23.00 h",
-    location: "Parque Barbaña",
     mapsQuery: "Parque Barbaña, Ourense",
     altStyle: false,
     startHour: 19, startMin: 0, startDay: 17,
-    endHour: 23, endMin: 0, endDay: 21
+    endHour: 23, endMin: 0, endDay: 21,
+    gl: {
+      title: "Atraccións",
+      datesText: "Do mércores <strong>17</strong> ao domingo <strong>21</strong>",
+      timeText: "Mér, xov e ven: 19.00 a 02.00 h. Sáb: 17.00 a 02.00 h. Dom: 17.00 a 23.00 h",
+      location: "Parque Barbaña"
+    },
+    es: {
+      title: "Atracciones",
+      datesText: "Del miércoles <strong>17</strong> al domingo <strong>21</strong>",
+      timeText: "Miér, juev y vier: 19:00 a 02:00 h. Sáb: 17:00 a 02:00 h. Dom: 17:00 a 23:00 h",
+      location: "Parque Barbaña"
+    }
   },
   {
     id: "g3",
-    title: "Xincana inchables acuáticos",
     category: "xerais",
     days: ["all", "17", "18", "19", "20", "21"],
-    datesText: "Do mércores <strong>17</strong> ao domingo <strong>21</strong>",
-    timeText: "Mér, xov e ven: 17.00 a 20.00 h. Sáb e dom: 11.30 a 13.00 e 17.00 a 20.00 h",
-    location: "Parque da Ribeira de Canedo",
     mapsQuery: "Parque da Ribeira de Canedo, Ourense",
     altStyle: false,
     startHour: 17, startMin: 0, startDay: 17,
-    endHour: 20, endMin: 0, endDay: 21
+    endHour: 20, endMin: 0, endDay: 21,
+    gl: {
+      title: "Xincana inchables acuáticos",
+      datesText: "Do mércores <strong>17</strong> ao domingo <strong>21</strong>",
+      timeText: "Mér, xov e ven: 17.00 a 20.00 h. Sáb e dom: 11.30 a 13.00 e 17.00 a 20.00 h",
+      location: "Parque da Ribeira de Canedo"
+    },
+    es: {
+      title: "Yincana de hinchables acuáticos",
+      datesText: "Del miércoles <strong>17</strong> al domingo <strong>21</strong>",
+      timeText: "Miér, juev y vier: 17:00 a 20:00 h. Sáb y dom: 11:30 a 13:00 y 17:00 a 20:00 h",
+      location: "Parque de la Ribeira de Canedo"
+    }
   },
   // Mércores 17
   {
     id: "c17_1",
-    title: "Orquestra Magma",
     category: "musica",
     days: ["17"],
-    datesText: "Mércores, <strong>17</strong> de xuño",
-    timeText: "De 21.00 a 22.30 h",
-    location: "Ponte Romana",
     mapsQuery: "Ponte Romana, Ourense",
     altStyle: false,
     startHour: 21, startMin: 0, startDay: 17,
-    endHour: 22, endMin: 30, endDay: 17
+    endHour: 22, endMin: 30, endDay: 17,
+    gl: {
+      title: "Orquestra Magma",
+      datesText: "Mércores, <strong>17</strong> de xuño",
+      timeText: "De 21.00 a 22.30 h",
+      location: "Ponte Romana"
+    },
+    es: {
+      title: "Orquesta Magma",
+      datesText: "Miércoles, <strong>17</strong> de junio",
+      timeText: "De 21:00 a 22:30 h",
+      location: "Puente Romano"
+    }
   },
   {
     id: "c17_2",
-    title: "Pregón: Rober Bodegas",
     category: "pregon",
     days: ["17"],
-    datesText: "Mércores, <strong>17</strong> de xuño",
-    timeText: "22.30 h",
-    location: "Ponte Romana",
     mapsQuery: "Ponte Romana, Ourense",
     altStyle: true,
     startHour: 22, startMin: 30, startDay: 17,
-    endHour: 23, endMin: 0, endDay: 17
+    endHour: 23, endMin: 0, endDay: 17,
+    gl: {
+      title: "Pregón: Rober Bodegas",
+      datesText: "Mércores, <strong>17</strong> de xuño",
+      timeText: "22.30 h",
+      location: "Ponte Romana"
+    },
+    es: {
+      title: "Pregón: Rober Bodegas",
+      datesText: "Miércoles, <strong>17</strong> de junio",
+      timeText: "22:30 h",
+      location: "Puente Romano"
+    }
   },
   {
     id: "c17_3",
-    title: "Espectáculo de Drons",
     category: "espectaculo",
     days: ["17"],
-    datesText: "Mércores, <strong>17</strong> de xuño",
-    timeText: "23.00 h",
-    location: "Ponte Romana",
     mapsQuery: "Ponte Romana, Ourense",
     altStyle: true,
     startHour: 23, startMin: 0, startDay: 17,
-    endHour: 23, endMin: 20, endDay: 17
+    endHour: 23, endMin: 20, endDay: 17,
+    gl: {
+      title: "Espectáculo de Drons",
+      datesText: "Mércores, <strong>17</strong> de xuño",
+      timeText: "23.00 h",
+      location: "Ponte Romana"
+    },
+    es: {
+      title: "Espectáculo de Drones",
+      datesText: "Miércoles, <strong>17</strong> de junio",
+      timeText: "23:00 h",
+      location: "Puente Romano"
+    }
   },
   {
     id: "c17_4",
-    title: "Orquestra Magma",
     category: "musica",
     days: ["17"],
-    datesText: "Mércores, <strong>17</strong> de xuño",
-    timeText: "De 23.20 a 01.00 h",
-    location: "Ponte Romana",
     mapsQuery: "Ponte Romana, Ourense",
     altStyle: false,
     startHour: 23, startMin: 20, startDay: 17,
-    endHour: 1, endMin: 0, endDay: 18 // Ends June 18 early morning
+    endHour: 1, endMin: 0, endDay: 18,
+    gl: {
+      title: "Orquestra Magma",
+      datesText: "Mércores, <strong>17</strong> de xuño",
+      timeText: "De 23.20 a 01.00 h",
+      location: "Ponte Romana"
+    },
+    es: {
+      title: "Orquesta Magma",
+      datesText: "Miércoles, <strong>17</strong> de junio",
+      timeText: "De 23:20 a 01:00 h",
+      location: "Puente Romano"
+    }
   },
   // Xoves 18
   {
     id: "c18_1",
-    title: "Vólei Praia (Xornada portas abertas)",
-    subtitle: "Maiores de 15 anos",
     category: "deporte",
     days: ["18"],
-    datesText: "Xoves, <strong>18</strong> de xuño",
-    timeText: "De 18.30 a 20.00 h",
-    location: "Campo Vólei Praia de Oira",
     mapsQuery: "Campo Volei Praia Oira, Ourense",
     altStyle: false,
     startHour: 18, startMin: 30, startDay: 18,
-    endHour: 20, endMin: 0, endDay: 18
+    endHour: 20, endMin: 0, endDay: 18,
+    gl: {
+      title: "Vólei Praia (Xornada portas abertas)",
+      subtitle: "Maiores de 15 anos",
+      datesText: "Xoves, <strong>18</strong> de xuño",
+      timeText: "De 18.30 a 20.00 h",
+      location: "Campo Vólei Praia de Oira"
+    },
+    es: {
+      title: "Vóley Playa (Jornada puertas abiertas)",
+      subtitle: "Mayores de 15 años",
+      datesText: "Jueves, <strong>18</strong> de junio",
+      timeText: "De 18:30 a 20:00 h",
+      location: "Campo de Vóley Playa de Oira"
+    }
   },
   {
     id: "c18_2",
-    title: "M-Clan",
     category: "musica",
     days: ["18"],
-    datesText: "Xoves, <strong>18</strong> de xuño",
-    timeText: "De 23.00 a 01.00 h",
-    location: "Exterior Pavillón dos Remedios",
     mapsQuery: "Pavillón dos Remedios, Ourense",
     altStyle: true,
     startHour: 23, startMin: 0, startDay: 18,
-    endHour: 1, endMin: 0, endDay: 19
+    endHour: 1, endMin: 0, endDay: 19,
+    gl: {
+      title: "M-Clan",
+      datesText: "Xoves, <strong>18</strong> de xuño",
+      timeText: "De 23.00 a 01.00 h",
+      location: "Exterior Pavillón dos Remedios"
+    },
+    es: {
+      title: "M-Clan",
+      datesText: "Jueves, <strong>18</strong> de junio",
+      timeText: "De 23:00 a 01:00 h",
+      location: "Exterior Pabellón de los Remedios"
+    }
   },
   {
     id: "c18_3",
-    title: "A Gramola Sesión DJ’s",
     category: "musica",
     days: ["18"],
-    datesText: "Xoves, <strong>18</strong> de xuño (madrugada)",
-    timeText: "De 01.30 a 03.30 h",
-    location: "Exterior Pavillón dos Remedios",
     mapsQuery: "Pavillón dos Remedios, Ourense",
     altStyle: false,
-    startHour: 1, startMin: 30, startDay: 19, // Actually morning of 19th
-    endHour: 3, endMin: 30, endDay: 19
+    startHour: 1, startMin: 30, startDay: 19,
+    endHour: 3, startMin: 30, endDay: 19,
+    gl: {
+      title: "A Gramola Sesión DJ’s",
+      datesText: "Xoves, <strong>18</strong> de xuño (madrugada)",
+      timeText: "De 01.30 a 03.30 h",
+      location: "Exterior Pavillón dos Remedios"
+    },
+    es: {
+      title: "A Gramola Sesión DJ's",
+      datesText: "Jueves, <strong>18</strong> de junio (madrugada)",
+      timeText: "De 01:30 a 03:30 h",
+      location: "Exterior Pabellón de los Remedios"
+    }
   },
   // Venres 19
   {
     id: "c19_1",
-    title: "Vólei Praia (Xornada portas abertas)",
-    subtitle: "De 6 a 14 anos",
     category: "deporte",
     days: ["19"],
-    datesText: "Venres, <strong>19</strong> de xuño",
-    timeText: "De 18.30 a 20.00 h",
-    location: "Campo Vólei Praia de Oira",
     mapsQuery: "Campo Volei Praia Oira, Ourense",
     altStyle: false,
     startHour: 18, startMin: 30, startDay: 19,
-    endHour: 20, endMin: 0, endDay: 19
+    endHour: 20, endMin: 0, endDay: 19,
+    gl: {
+      title: "Vólei Praia (Xornada portas abertas)",
+      subtitle: "De 6 a 14 anos",
+      datesText: "Venres, <strong>19</strong> de xuño",
+      timeText: "De 18.30 a 20.00 h",
+      location: "Campo Vólei Praia de Oira"
+    },
+    es: {
+      title: "Vóley Playa (Jornada puertas abiertas)",
+      subtitle: "De 6 a 14 años",
+      datesText: "Viernes, <strong>19</strong> de junio",
+      timeText: "De 18:30 a 20:00 h",
+      location: "Campo de Vóley Playa de Oira"
+    }
   },
   {
     id: "c19_2",
-    title: "2.º Máster de Ourense de Futbolín",
     category: "deporte",
     days: ["19"],
-    datesText: "Venres, <strong>19</strong> de xuño",
-    timeText: "19.00 h",
-    location: "Cancha Central do Pavillón dos Remedios",
     mapsQuery: "Pavillón dos Remedios, Ourense",
     altStyle: false,
     startHour: 19, startMin: 0, startDay: 19,
-    endHour: 22, endMin: 0, endDay: 19
+    endHour: 22, endMin: 0, endDay: 19,
+    gl: {
+      title: "2.º Máster de Ourense de Futbolín",
+      datesText: "Venres, <strong>19</strong> de xuño",
+      timeText: "19.00 h",
+      location: "Cancha Central do Pavillón dos Remedios"
+    },
+    es: {
+      title: "2.º Máster de Ourense de Futbolín",
+      datesText: "Viernes, <strong>19</strong> de junio",
+      timeText: "19:00 h",
+      location: "Cancha Central del Pabellón de los Remedios"
+    }
   },
   {
     id: "c19_3",
-    title: "Miguel Ríos",
     category: "musica",
     days: ["19"],
-    datesText: "Venres, <strong>19</strong> de xuño",
-    timeText: "De 23.00 a 01.00 h",
-    location: "Exterior Pavillón dos Remedios",
     mapsQuery: "Pavillón dos Remedios, Ourense",
     altStyle: true,
     startHour: 23, startMin: 0, startDay: 19,
-    endHour: 1, endMin: 0, endDay: 20
+    endHour: 1, endMin: 0, endDay: 20,
+    gl: {
+      title: "Miguel Ríos",
+      datesText: "Venres, <strong>19</strong> de xuño",
+      timeText: "De 23.00 a 01.00 h",
+      location: "Exterior Pavillón dos Remedios"
+    },
+    es: {
+      title: "Miguel Ríos",
+      datesText: "Viernes, <strong>19</strong> de junio",
+      timeText: "De 23:00 a 01:00 h",
+      location: "Exterior Pabellón de los Remedios"
+    }
   },
   {
     id: "c19_4",
-    title: "América",
     category: "musica",
     days: ["19"],
-    datesText: "Venres, <strong>19</strong> de xuño (madrugada)",
-    timeText: "De 01.00 a 03.30 h",
-    location: "Praza de Concepción Arenal",
     mapsQuery: "Praza de Concepción Arenal, Ourense",
     altStyle: false,
     startHour: 1, startMin: 0, startDay: 20,
-    endHour: 3, endMin: 30, endDay: 20
+    endHour: 3, endMin: 30, endDay: 20,
+    gl: {
+      title: "América",
+      datesText: "Venres, <strong>19</strong> de xuño (madrugada)",
+      timeText: "De 01.00 a 03.30 h",
+      location: "Praza de Concepción Arenal"
+    },
+    es: {
+      title: "América",
+      datesText: "Viernes, <strong>19</strong> de junio (madrugada)",
+      timeText: "De 01:00 a 03:30 h",
+      location: "Plaza de Concepción Arenal"
+    }
   },
   // Sábado 20
   {
     id: "c20_1",
-    title: "2.º Máster de Ourense de Futbolín",
     category: "deporte",
     days: ["20"],
-    datesText: "Sábado, <strong>20</strong> de xuño",
-    timeText: "De 09.00 a 01.00 h",
-    location: "Pavillón Anexo dos Remedios",
     mapsQuery: "Pavillón dos Remedios, Ourense",
     altStyle: false,
     startHour: 9, startMin: 0, startDay: 20,
-    endHour: 1, endMin: 0, endDay: 21
+    endHour: 1, endMin: 0, endDay: 21,
+    gl: {
+      title: "2.º Máster de Ourense de Futbolín",
+      datesText: "Sábado, <strong>20</strong> de xuño",
+      timeText: "De 09.00 a 01.00 h",
+      location: "Pavillón Anexo dos Remedios"
+    },
+    es: {
+      title: "2.º Máster de Ourense de Futbolín",
+      datesText: "Sábado, <strong>20</strong> de junio",
+      timeText: "De 09:00 a 01:00 h",
+      location: "Pabellón Anexo de los Remedios"
+    }
   },
   {
     id: "c20_2",
-    title: "Breaking",
     category: "deporte",
     days: ["20"],
-    datesText: "Sábado, <strong>20</strong> de xuño",
-    timeText: "De 17.00 a 22.00 h",
-    location: "Pistas exteriores do Pavillón dos Remedios",
     mapsQuery: "Pavillón dos Remedios, Ourense",
     altStyle: false,
     startHour: 17, startMin: 0, startDay: 20,
-    endHour: 22, endMin: 0, endDay: 20
+    endHour: 22, endMin: 0, endDay: 20,
+    gl: {
+      title: "Breaking",
+      datesText: "Sábado, <strong>20</strong> de xuño",
+      timeText: "De 17.00 a 22.00 h",
+      location: "Pistas exteriores do Pavillón dos Remedios"
+    },
+    es: {
+      title: "Breaking",
+      datesText: "Sábado, <strong>20</strong> de junio",
+      timeText: "De 17:00 a 22:00 h",
+      location: "Pistas exteriores del Pabellón de los Remedios"
+    }
   },
   {
     id: "c20_3",
-    title: "Festa das Cores",
     category: "animacion",
     days: ["20"],
-    datesText: "Sábado, <strong>20</strong> de xuño",
-    timeText: "19.30 h",
-    location: "Praza de Concepción Arenal",
     mapsQuery: "Praza de Concepción Arenal, Ourense",
     altStyle: true,
     startHour: 19, startMin: 30, startDay: 20,
-    endHour: 20, endMin: 30, endDay: 20
+    endHour: 20, endMin: 30, endDay: 20,
+    gl: {
+      title: "Festa das Cores",
+      datesText: "Sábado, <strong>20</strong> de xuño",
+      timeText: "19.30 h",
+      location: "Praza de Concepción Arenal"
+    },
+    es: {
+      title: "Fiesta de los Colores",
+      datesText: "Sábado, <strong>20</strong> de junio",
+      timeText: "19:30 h",
+      location: "Plaza de Concepción Arenal"
+    }
   },
   {
     id: "c20_4",
-    title: "Cantajuego",
     category: "infantil",
     days: ["20"],
-    datesText: "Sábado, <strong>20</strong> de xuño",
-    timeText: "20.30 h",
-    location: "Praza de Concepción Arenal",
     mapsQuery: "Praza de Concepción Arenal, Ourense",
     altStyle: true,
     startHour: 20, startMin: 30, startDay: 20,
-    endHour: 22, endMin: 0, endDay: 20
+    endHour: 22, endMin: 0, endDay: 20,
+    gl: {
+      title: "Cantajuego",
+      datesText: "Sábado, <strong>20</strong> de xuño",
+      timeText: "20.30 h",
+      location: "Praza de Concepción Arenal"
+    },
+    es: {
+      title: "Cantajuegos",
+      datesText: "Sábado, <strong>20</strong> de junio",
+      timeText: "20:30 h",
+      location: "Plaza de Concepción Arenal"
+    }
   },
   {
     id: "c20_5",
-    title: "Dirty Suc",
     category: "musica",
     days: ["20"],
-    datesText: "Sábado, <strong>20</strong> de xuño",
-    timeText: "22.30 h",
-    location: "Exterior Pavillón dos Remedios",
     mapsQuery: "Pavillón dos Remedios, Ourense",
     altStyle: false,
     startHour: 22, startMin: 30, startDay: 20,
-    endHour: 23, endMin: 45, endDay: 20
+    endHour: 23, endMin: 45, endDay: 20,
+    gl: {
+      title: "Dirty Suc",
+      datesText: "Sábado, <strong>20</strong> de xuño",
+      timeText: "22.30 h",
+      location: "Exterior Pavillón dos Remedios"
+    },
+    es: {
+      title: "Dirty Suc",
+      datesText: "Sábado, <strong>20</strong> de junio",
+      timeText: "22:30 h",
+      location: "Exterior Pabellón de los Remedios"
+    }
   },
   {
     id: "c20_6",
-    title: "Hard Gz",
     category: "musica",
     days: ["20"],
-    datesText: "Sábado, <strong>20</strong> de xuño",
-    timeText: "23.45 h",
-    location: "Exterior Pavillón dos Remedios",
     mapsQuery: "Pavillón dos Remedios, Ourense",
     altStyle: true,
     startHour: 23, startMin: 45, startDay: 20,
-    endHour: 1, endMin: 0, endDay: 21
+    endHour: 1, endMin: 0, endDay: 21,
+    gl: {
+      title: "Hard Gz",
+      datesText: "Sábado, <strong>20</strong> de xuño",
+      timeText: "23.45 h",
+      location: "Exterior Pavillón dos Remedios"
+    },
+    es: {
+      title: "Hard Gz",
+      datesText: "Sábado, <strong>20</strong> de junio",
+      timeText: "23:45 h",
+      location: "Exterior Pabellón de los Remedios"
+    }
   },
   {
     id: "c20_7",
-    title: "Conductores Suicidas",
-    subtitle: "Tributo a Sabina",
     category: "musica",
     days: ["20"],
-    datesText: "Sábado, <strong>20</strong> de xuño",
-    timeText: "00.00 h",
-    location: "Praza de Concepción Arenal",
     mapsQuery: "Praza de Concepción Arenal, Ourense",
     altStyle: false,
-    startHour: 0, startMin: 0, startDay: 21, // midnight Saturday is technically Sunday 21st
-    endHour: 2, endMin: 0, endDay: 21
+    startHour: 0, startMin: 0, startDay: 21,
+    endHour: 2, startMin: 0, endDay: 21,
+    gl: {
+      title: "Conductores Suicidas",
+      subtitle: "Tributo a Sabina",
+      datesText: "Sábado, <strong>20</strong> de xuño",
+      timeText: "00.00 h",
+      location: "Praza de Concepción Arenal"
+    },
+    es: {
+      title: "Conductores Suicidas",
+      subtitle: "Tributo a Sabina",
+      datesText: "Sábado, <strong>20</strong> de junio",
+      timeText: "00:00 h",
+      location: "Plaza de Concepción Arenal"
+    }
   },
   {
     id: "c20_8",
-    title: "A Gramola Sesión DJ’s",
     category: "musica",
     days: ["20"],
-    datesText: "Sábado, <strong>20</strong> de xuño (madrugada)",
-    timeText: "01.30 h",
-    location: "Exterior Pavillón dos Remedios",
     mapsQuery: "Pavillón dos Remedios, Ourense",
     altStyle: false,
     startHour: 1, startMin: 30, startDay: 21,
-    endHour: 3, endMin: 30, endDay: 21
+    endHour: 3, startMin: 30, endDay: 21,
+    gl: {
+      title: "A Gramola Sesión DJ’s",
+      datesText: "Sábado, <strong>20</strong> de xuño (madrugada)",
+      timeText: "01.30 h",
+      location: "Exterior Pavillón dos Remedios"
+    },
+    es: {
+      title: "A Gramola Sesión DJ's",
+      datesText: "Sábado, <strong>20</strong> de junio (madrugada)",
+      timeText: "01:30 h",
+      location: "Exterior Pabellón de los Remedios"
+    }
   },
   // Domingo 21
   {
     id: "c21_1",
-    title: "Orquestra Função Públika",
     category: "musica",
     days: ["21"],
-    datesText: "Domingo, <strong>21</strong> de xuño",
-    timeText: "De 21.30 a 23.50 h",
-    location: "Ponte Romana",
     mapsQuery: "Ponte Romana, Ourense",
     altStyle: false,
     startHour: 21, startMin: 30, startDay: 21,
-    endHour: 23, endMin: 50, endDay: 21
+    endHour: 23, endMin: 50, endDay: 21,
+    gl: {
+      title: "Orquestra Função Públika",
+      datesText: "Domingo, <strong>21</strong> de xuño",
+      timeText: "De 21.30 a 23.50 h",
+      location: "Ponte Romana"
+    },
+    es: {
+      title: "Orquesta Função Públika",
+      datesText: "Domingo, <strong>21</strong> de junio",
+      timeText: "De 21:30 a 23:50 h",
+      location: "Puente Romano"
+    }
   },
   {
     id: "c21_2",
-    title: "Fogos Artificiais",
     category: "espectaculo",
     days: ["21"],
-    datesText: "Domingo, <strong>21</strong> de xuño",
-    timeText: "00.00 h",
-    location: "Ponte Romana",
     mapsQuery: "Ponte Romana, Ourense",
     altStyle: true,
-    startHour: 0, startMin: 0, startDay: 22, // technically midnight Sunday is June 22nd
-    endHour: 0, endMin: 30, endDay: 22
+    startHour: 0, startMin: 0, startDay: 22,
+    endHour: 0, endMin: 30, endDay: 22,
+    gl: {
+      title: "Fogos Artificiais",
+      datesText: "Domingo, <strong>21</strong> de xuño",
+      timeText: "00.00 h",
+      location: "Ponte Romana"
+    },
+    es: {
+      title: "Fuegos Artificiales",
+      datesText: "Domingo, <strong>21</strong> de junio",
+      timeText: "00:00 h",
+      location: "Puente Romano"
+    }
   }
 ];
 
@@ -328,6 +522,91 @@ const EVENTS_DATA = [
 let currentTab = 'all';
 let searchQuery = '';
 let favorites = JSON.parse(localStorage.getItem('ourense_favs')) || [];
+let currentLang = localStorage.getItem('ourense_lang') || 'gl';
+
+// Translations Dictionary for UI Elements
+const UI_TRANSLATIONS = {
+  gl: {
+    splashTitle: "Festas de Ourense",
+    splashDate: "17 a 21 de xuño 2026",
+    btnEnter: "Ver Programa",
+    splashFooter: "Máis información en ourense.gal",
+    headerTitle: "Festas de Ourense",
+    headerDate: "17 a 21 de xuño 2026",
+    searchPlaceholder: "Buscar orquestra, concerto, lugar...",
+    tabAll: "Xerais",
+    tabFav: "Favoritos",
+    eventLabel: "evento",
+    eventsLabel: "eventos",
+    dateHeaderAll: "Eventos Xerais / Varios días",
+    dateHeaderFav: "Os meus Favoritos ⭐",
+    dateHeaderDay: "{day} de xuño",
+    dateHeaderPrefixGl: "",
+    dateHeaderPrefixEs: "",
+    emptyFavTitle: "Ningún favorito gardado",
+    emptyFavDesc: "Preme na estrela dos teus eventos preferidos para atopalos aquí rapidamente.",
+    emptySearchTitle: "Sen resultados",
+    emptySearchDesc: "Non atopamos eventos que coincidan coa túa busca na pestana actual.",
+    labelDate: "Data:",
+    labelTime: "Horario:",
+    labelPlace: "Lugar:",
+    btnMaps: "Google Maps",
+    btnShare: "Compartir",
+    statusLive: "En directo 🔴",
+    statusToday: "Hoxe",
+    statusUpcoming: "Próximamente",
+    statusPast: "Finalizado",
+    toastFavSaved: "⭐ Gardado: ",
+    toastFavRemoved: "Eliminado: ",
+    toastCopied: "Copiado ao portapapeles! Listo para compartir.",
+    toastCopyError: "Erro ao copiar.",
+    pwaTitle: "Engadir á pantalla de inicio",
+    pwaDesc: "Accede ao programa ao instante, incluso sen internet.",
+    pwaCancel: "Agora non",
+    pwaInstall: "Instalar",
+    shareTextPrefix: "Festas de Ourense 2026: Non te perdas "
+  },
+  es: {
+    splashTitle: "Fiestas de Ourense",
+    splashDate: "17 a 21 de junio 2026",
+    btnEnter: "Ver Programa",
+    splashFooter: "Más información en ourense.gal",
+    headerTitle: "Fiestas de Ourense",
+    headerDate: "17 a 21 de junio 2026",
+    searchPlaceholder: "Buscar orquesta, concierto, lugar...",
+    tabAll: "Generales",
+    tabFav: "Favoritos",
+    eventLabel: "evento",
+    eventsLabel: "eventos",
+    dateHeaderAll: "Eventos Generales / Varios días",
+    dateHeaderFav: "Mis Favoritos ⭐",
+    dateHeaderDay: "{day} de junio",
+    dateHeaderPrefixGl: "",
+    dateHeaderPrefixEs: "",
+    emptyFavTitle: "Ningún favorito guardado",
+    emptyFavDesc: "Pulsa en la estrella de tus eventos preferidos para encontrarlos aquí rápidamente.",
+    emptySearchTitle: "Sin resultados",
+    emptySearchDesc: "No encontramos eventos que coincidan con tu búsqueda en la pestaña actual.",
+    labelDate: "Fecha:",
+    labelTime: "Horario:",
+    labelPlace: "Lugar:",
+    btnMaps: "Google Maps",
+    btnShare: "Compartir",
+    statusLive: "En directo 🔴",
+    statusToday: "Hoy",
+    statusUpcoming: "Próximamente",
+    statusPast: "Finalizado",
+    toastFavSaved: "⭐ Guardado: ",
+    toastFavRemoved: "Eliminado: ",
+    toastCopied: "¡Copiado al portapapeles! Listo para compartir.",
+    toastCopyError: "Error al copiar.",
+    pwaTitle: "Añadir a la pantalla de inicio",
+    pwaDesc: "Accede al programa al instante, incluso sin internet.",
+    pwaCancel: "Ahora no",
+    pwaInstall: "Instalar",
+    shareTextPrefix: "Fiestas de Ourense 2026: No te pierdas "
+  }
+};
 
 // DOM Elements
 const splashScreen = document.getElementById('splash-screen');
@@ -340,52 +619,122 @@ const eventsList = document.getElementById('events-list');
 const searchInput = document.getElementById('search-input');
 const searchClearBtn = document.getElementById('search-clear-btn');
 
+// Language Buttons
+const btnLangGl = document.getElementById('btn-lang-gl');
+const btnLangEs = document.getElementById('btn-lang-es');
+
+// Dynamic UI elements for translation
+const splashTitleEl = document.querySelector('.splash-title');
+const splashDateEl = document.getElementById('splash-date-badge');
+const splashFooterEl = document.getElementById('splash-footer-text');
+const headerTitleEl = document.querySelector('.header-main-title');
+const headerDateEl = document.getElementById('header-date-badge');
+const tabBtnAllEl = document.getElementById('tab-btn-all');
+const tabBtnFavEl = document.getElementById('tab-btn-fav');
+const favTabLabelEl = document.getElementById('fav-tab-label');
+const pwaTitleEl = document.getElementById('pwa-banner-title');
+const pwaDescEl = document.getElementById('pwa-banner-desc');
+const pwaBtnCancel = document.getElementById('pwa-btn-cancel');
+const pwaBtnInstall = document.getElementById('pwa-btn-install');
+const footerLinkEl = document.getElementById('footer-info-link');
+
 // PWA Install Prompt state
 let deferredPrompt;
 const pwaBanner = document.getElementById('pwa-install-banner');
-const pwaBtnInstall = document.getElementById('pwa-btn-install');
-const pwaBtnCancel = document.getElementById('pwa-btn-cancel');
 
-// 1. Splash Screen Fade Out Logic
+// 1. Initialize App (Language and Render)
+initApp();
+
+function initApp() {
+  setLanguage(currentLang);
+  renderEvents();
+}
+
+// 2. Language Selection Handler
+btnLangGl.addEventListener('click', () => setLanguage('gl'));
+btnLangEs.addEventListener('click', () => setLanguage('es'));
+
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('ourense_lang', lang);
+  
+  // Update Selector Button styles
+  if (lang === 'gl') {
+    btnLangGl.classList.add('active');
+    btnLangEs.classList.remove('active');
+  } else {
+    btnLangEs.classList.add('active');
+    btnLangGl.classList.remove('active');
+  }
+  
+  // Translate static HTML texts
+  const t = UI_TRANSLATIONS[lang];
+  
+  splashTitleEl.textContent = t.splashTitle;
+  splashDateEl.textContent = t.splashDate;
+  btnEnter.textContent = t.btnEnter;
+  splashFooterEl.textContent = t.splashFooter;
+  
+  headerTitleEl.textContent = t.headerTitle;
+  headerDateEl.textContent = t.headerDate;
+  tabBtnAllEl.textContent = t.tabAll;
+  favTabLabelEl.textContent = t.tabFav;
+  searchInput.placeholder = t.searchPlaceholder;
+  
+  pwaTitleEl.textContent = t.pwaTitle;
+  pwaDescEl.textContent = t.pwaDesc;
+  pwaBtnCancel.textContent = t.pwaCancel;
+  pwaBtnInstall.textContent = t.pwaInstall;
+  
+  footerLinkEl.innerHTML = `${lang === 'gl' ? 'Máis' : 'Más'} información en <a href="https://ourense.gal" target="_blank" rel="noopener">ourense.gal</a>`;
+
+  updateTabTitle();
+  renderEvents();
+}
+
+// 3. Splash Screen Fade Out Logic
 btnEnter.addEventListener('click', () => {
   splashScreen.classList.add('fade-out');
   setTimeout(() => {
     splashScreen.classList.add('hidden');
     appContainer.classList.remove('hidden');
-    // Force a redraw and load the active tab
     renderEvents();
   }, 600);
 });
 
-// 2. Navigation Tab Click Handler
+// 4. Navigation Tab Click Handler
 tabButtons.forEach(button => {
   button.addEventListener('click', () => {
     tabButtons.forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
     currentTab = button.getAttribute('data-tab');
     
-    // Update active tab header title
     updateTabTitle();
-    // Render
     renderEvents();
   });
 });
 
 // Update Header Title depending on current tab
 function updateTabTitle() {
-  const titles = {
-    'all': 'Eventos Xerais / Varios días',
-    '17': 'Mércores, 17 de xuño',
-    '18': 'Xoves, 18 de xuño',
-    '19': 'Venres, 19 de xuño',
-    '20': 'Sábado, 20 de xuño',
-    '21': 'Domingo, 21 de xuño',
-    'favorites': 'Os meus Favoritos ⭐'
-  };
-  tabTitle.textContent = titles[currentTab] || 'Eventos';
+  const t = UI_TRANSLATIONS[currentLang];
+  if (currentTab === 'all') {
+    tabTitle.textContent = t.dateHeaderAll;
+  } else if (currentTab === 'favorites') {
+    tabTitle.textContent = t.dateHeaderFav;
+  } else {
+    const dayNames = {
+      '17': currentLang === 'gl' ? 'Mércores, 17' : 'Miércoles, 17',
+      '18': currentLang === 'gl' ? 'Xoves, 18' : 'Jueves, 18',
+      '19': currentLang === 'gl' ? 'Venres, 19' : 'Viernes, 19',
+      '20': currentLang === 'gl' ? 'Sábado, 20' : 'Sábado, 20',
+      '21': currentLang === 'gl' ? 'Domingo, 21' : 'Domingo, 21'
+    };
+    const formatted = t.dateHeaderDay.replace('{day}', dayNames[currentTab] || currentTab);
+    tabTitle.textContent = formatted;
+  }
 }
 
-// 3. Search Bar Logic
+// 5. Search Bar Logic
 searchInput.addEventListener('input', (e) => {
   searchQuery = e.target.value.toLowerCase().trim();
   if (searchQuery.length > 0) {
@@ -404,43 +753,38 @@ searchClearBtn.addEventListener('click', () => {
   searchInput.focus();
 });
 
-// 4. Calculate Event Real-time Status Badge
-// Note: Compare with June 2026. If current time is not June 2026, we mock the current year
-// so that when June 2026 comes, it works perfectly live.
+// 6. Calculate Event Real-time Status Badge
 function getEventStatus(event) {
   const now = new Date();
+  const t = UI_TRANSLATIONS[currentLang];
   
-  // Create Date objects representing the event limits in 2026
-  // Months are 0-indexed (5 = June)
+  // Event Date representations
   const eventStart = new Date(2026, 5, event.startDay, event.startHour, event.startMin);
   const eventEnd = new Date(2026, 5, event.endDay, event.endHour, event.endMin);
 
-  // If we are currently in June 2026, do live checks
-  // Otherwise, we can mock it by comparing only the days/hours for demonstration purposes,
-  // but to be clean, let's compare dates directly.
   if (now > eventStart && now < eventEnd) {
-    return { class: 'status-live', text: 'En directo 🔴' };
+    return { class: 'status-live', text: t.statusLive };
   }
   
-  // If it's today (mocked to 2026-06-17 to 21 for checking, or live if in June 2026)
   const isToday = now.getFullYear() === 2026 && 
                   now.getMonth() === 5 && 
                   now.getDate() === event.startDay;
                   
   if (isToday && now < eventStart) {
-    return { class: 'status-today', text: 'Hoxe' };
+    return { class: 'status-today', text: t.statusToday };
   }
   
   if (now > eventEnd) {
-    return { class: 'status-past hidden', text: 'Finalizado' }; // Hide past events to keep screen clean
+    return { class: 'status-past hidden', text: t.statusPast };
   }
   
-  return { class: 'status-upcoming', text: 'Próximamente' };
+  return { class: 'status-upcoming', text: t.statusUpcoming };
 }
 
-// 5. Render Events List
+// 7. Render Events List
 function renderEvents() {
   eventsList.innerHTML = '';
+  const t = UI_TRANSLATIONS[currentLang];
   
   // Filter events by tab
   let filtered = EVENTS_DATA.filter(event => {
@@ -453,15 +797,17 @@ function renderEvents() {
   // Filter events by search query
   if (searchQuery.length > 0) {
     filtered = filtered.filter(event => {
-      const matchTitle = event.title.toLowerCase().includes(searchQuery);
-      const matchSubtitle = event.subtitle && event.subtitle.toLowerCase().includes(searchQuery);
-      const matchLocation = event.location.toLowerCase().includes(searchQuery);
+      const data = event[currentLang];
+      const matchTitle = data.title.toLowerCase().includes(searchQuery);
+      const matchSubtitle = data.subtitle && data.subtitle.toLowerCase().includes(searchQuery);
+      const matchLocation = data.location.toLowerCase().includes(searchQuery);
       return matchTitle || matchSubtitle || matchLocation;
     });
   }
   
   // Update count badge
-  eventCount.textContent = `${filtered.length} ${filtered.length === 1 ? 'evento' : 'eventos'}`;
+  const label = filtered.length === 1 ? t.eventLabel : t.eventsLabel;
+  eventCount.textContent = `${filtered.length} ${label}`;
   
   if (filtered.length === 0) {
     renderEmptyState();
@@ -478,46 +824,49 @@ function renderEvents() {
       return;
     }
     
+    // Get bilingual content
+    const data = event[currentLang];
+    
     const card = document.createElement('div');
     card.className = `event-card ${event.altStyle ? 'styled-alt' : ''}`;
     
     card.innerHTML = `
-      <button class="btn-favorite-float ${isFav ? 'is-active' : ''}" data-id="${event.id}" aria-label="Engadir a favoritos">
+      <button class="btn-favorite-float ${isFav ? 'is-active' : ''}" data-id="${event.id}" aria-label="${currentLang === 'gl' ? 'Engadir a favoritos' : 'Añadir a favoritos'}">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
       </button>
       
       <span class="event-status-badge ${status.class}">${status.text}</span>
       
       <div class="event-info">
-        <h4 class="event-title">${event.title}</h4>
-        ${event.subtitle ? `<p style="font-weight:600; color:var(--color-text-muted); margin-top:-4px; margin-bottom:8px; font-size:0.95rem;">${event.subtitle}</p>` : ''}
+        <h4 class="event-title">${data.title}</h4>
+        ${data.subtitle ? `<p style="font-weight:600; color:var(--color-text-muted); margin-top:-4px; margin-bottom:8px; font-size:0.95rem;">${data.subtitle}</p>` : ''}
         
         <hr class="event-divider">
         
         <div class="event-detail-row">
-          <span class="detail-label">Data:</span>
-          <span class="detail-value dates">${event.datesText}</span>
+          <span class="detail-label">${t.labelDate}</span>
+          <span class="detail-value dates">${data.datesText}</span>
         </div>
         
         <div class="event-detail-row">
-          <span class="detail-label">Horario:</span>
-          <span class="detail-value time">${event.timeText}</span>
+          <span class="detail-label">${t.labelTime}</span>
+          <span class="detail-value time">${data.timeText}</span>
         </div>
         
         <div class="event-detail-row">
-          <span class="detail-label">Lugar:</span>
-          <span class="detail-value location">${event.location}</span>
+          <span class="detail-label">${t.labelPlace}</span>
+          <span class="detail-value location">${data.location}</span>
         </div>
       </div>
       
       <div class="event-actions">
         <button class="btn-card-action btn-map" onclick="openMap('${event.mapsQuery}')">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          Google Maps
+          ${t.btnMaps}
         </button>
-        <button class="btn-card-action btn-share" onclick="shareEvent('${event.title}', '${event.location}', '${event.timeText}')">
+        <button class="btn-card-action btn-share" onclick="shareEvent('${data.title}', '${data.location}', '${data.timeText}')">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-          Compartir
+          ${t.btnShare}
         </button>
       </div>
     `;
@@ -536,16 +885,17 @@ function renderEvents() {
   });
 }
 
-// 6. Empty States Render
+// 8. Empty States Render
 function renderEmptyState() {
+  const t = UI_TRANSLATIONS[currentLang];
   if (currentTab === 'favorites') {
     eventsList.innerHTML = `
       <div class="empty-state">
         <div class="empty-state-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
         </div>
-        <h4>Ningún favorito gardado</h4>
-        <p>Preme na estrela dos teus eventos preferidos para atopalos aquí rapidamente.</p>
+        <h4>${t.emptyFavTitle}</h4>
+        <p>${t.emptyFavDesc}</p>
       </div>
     `;
   } else {
@@ -554,41 +904,42 @@ function renderEmptyState() {
         <div class="empty-state-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </div>
-        <h4>Sen resultados</h4>
-        <p>Non atopamos eventos que coincidan coa túa busca na pestana actual.</p>
+        <h4>${t.emptySearchTitle}</h4>
+        <p>${t.emptySearchDesc}</p>
       </div>
     `;
   }
 }
 
-// 7. Toggle Favorite Logic
+// 9. Toggle Favorite Logic
 function toggleFavorite(id) {
   const index = favorites.indexOf(id);
   const event = EVENTS_DATA.find(e => e.id === id);
+  const t = UI_TRANSLATIONS[currentLang];
+  const title = event[currentLang].title;
   
   if (index > -1) {
     favorites.splice(index, 1);
-    showToast(`Eliminado: ${event.title}`);
+    showToast(`${t.toastFavRemoved}${title}`);
   } else {
     favorites.push(id);
-    showToast(`⭐ Gardado: ${event.title}`);
+    showToast(`${t.toastFavSaved}${title}`);
   }
   
   localStorage.setItem('ourense_favs', JSON.stringify(favorites));
-  
-  // Re-render
   renderEvents();
 }
 
-// 8. Open Google Maps search in new tab
+// 10. Open Google Maps search in new tab
 window.openMap = function(query) {
   const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
   window.open(url, '_blank');
 };
 
-// 9. Share Event Logic (Web Share API fallback to Copy Link)
+// 11. Share Event Logic
 window.shareEvent = function(title, location, time) {
-  const shareText = `Festas de Ourense 2026: Non te perdas "${title}" en "${location}" (${time}). Consulta o programa oficial no móbil!`;
+  const t = UI_TRANSLATIONS[currentLang];
+  const shareText = `${t.shareTextPrefix}"${title}" en "${location}" (${time}). ${currentLang === 'gl' ? 'Consulta o programa oficial no móbil!' : '¡Consulta el programa oficial en el móvil!'}`;
   
   if (navigator.share) {
     navigator.share({
@@ -599,16 +950,15 @@ window.shareEvent = function(title, location, time) {
   } else {
     // Copy to clipboard fallback
     navigator.clipboard.writeText(shareText).then(() => {
-      showToast("Copiado ao portapapeles! Listo para compartir.");
+      showToast(t.toastCopied);
     }).catch(() => {
-      showToast("Erro ao copiar.");
+      showToast(t.toastCopyError);
     });
   }
 };
 
-// 10. Toast Notification Helper
+// 12. Toast Notification Helper
 function showToast(message) {
-  // Check if active toast exists
   let toast = document.querySelector('.toast-msg');
   if (!toast) {
     toast = document.createElement('div');
@@ -632,33 +982,27 @@ function showToast(message) {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js')
-      .then(reg => console.log('Service Worker rexistrado con éxito', reg))
-      .catch(err => console.warn('Erro ao rexistrar o Service Worker', err));
+      .then(reg => console.log('Service Worker registrado con éxito', reg))
+      .catch(err => console.warn('Error al registrar el Service Worker', err));
   });
 }
 
 // Capture PWA Install trigger
 window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();
-  // Stash the event so it can be triggered later.
   deferredPrompt = e;
-  // Show the install banner
   pwaBanner.classList.remove('hidden');
 });
 
 pwaBtnInstall.addEventListener('click', () => {
-  // Hide the banner
   pwaBanner.classList.add('hidden');
-  // Show the prompt
   if (deferredPrompt) {
     deferredPrompt.prompt();
-    // Wait for the user to respond to the prompt
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
-        console.log('Usuario aceptou a instalación da PWA');
+        console.log('Usuario aceptó la instalación de la PWA');
       } else {
-        console.log('Usuario rexeitou a instalación da PWA');
+        console.log('Usuario rechazó la instalación de la PWA');
       }
       deferredPrompt = null;
     });

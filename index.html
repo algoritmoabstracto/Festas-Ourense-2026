@@ -23,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
   
   <!-- CSS Styles -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=202606081820">
 </head>
 <body>
 
@@ -33,10 +33,10 @@
     <div class="splash-content">
       <img src="assets/logo.png" alt="Concello de Ourense" class="splash-logo">
       <h1 class="splash-title">Festas de Ourense</h1>
-      <div class="splash-badge">17 a 21 de xuño 2026</div>
+      <div class="splash-badge" id="splash-date-badge">17 a 21 de xuño 2026</div>
       <button id="btn-enter" class="btn-primary-ripple">Ver Programa</button>
     </div>
-    <div class="splash-footer">
+    <div class="splash-footer" id="splash-footer-text">
       Máis información en ourense.gal
     </div>
   </div>
@@ -50,7 +50,12 @@
       </div>
       <div class="header-titles">
         <h2 class="header-main-title">Festas de Ourense</h2>
-        <div class="header-badge">17 a 21 de xuño 2026</div>
+        <div class="header-badge" id="header-date-badge">17 a 21 de xuño 2026</div>
+      </div>
+      <!-- Language Switcher Selector -->
+      <div class="lang-switcher">
+        <button id="btn-lang-gl" class="btn-lang active" data-lang="gl">GL</button>
+        <button id="btn-lang-es" class="btn-lang" data-lang="es">ES</button>
       </div>
     </header>
 
@@ -70,17 +75,17 @@
     <!-- Navigation Tabs (horizontal scrolling on mobile) -->
     <nav class="tabs-nav">
       <div class="tabs-scroll-container">
-        <button class="tab-btn active" data-tab="all">Xerais</button>
+        <button class="tab-btn active" id="tab-btn-all" data-tab="all">Xerais</button>
         <button class="tab-btn" data-tab="17">Mér 17</button>
         <button class="tab-btn" data-tab="18">Xov 18</button>
         <button class="tab-btn" data-tab="19">Ven 19</button>
         <button class="tab-btn" data-tab="20">Sáb 20</button>
         <button class="tab-btn" data-tab="21">Dom 21</button>
-        <button class="tab-btn tab-btn-fav" data-tab="favorites">
+        <button class="tab-btn tab-btn-fav" id="tab-btn-fav" data-tab="favorites">
           <span class="fav-icon-wrapper">
             <svg class="star-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
           </span>
-          Favoritos
+          <span id="fav-tab-label">Favoritos</span>
         </button>
       </div>
     </nav>
@@ -104,8 +109,8 @@
       <div class="pwa-banner-content">
         <img src="assets/icon-192.png" alt="App Icon" class="pwa-banner-icon">
         <div class="pwa-banner-text">
-          <h4>Engadir á pantalla de inicio</h4>
-          <p>Accede ao programa ao instante, incluso sen internet.</p>
+          <h4 id="pwa-banner-title">Engadir á pantalla de inicio</h4>
+          <p id="pwa-banner-desc">Accede ao programa ao instante, incluso sen internet.</p>
         </div>
       </div>
       <div class="pwa-banner-actions">
@@ -116,12 +121,12 @@
 
     <!-- Footer of main page -->
     <footer class="app-footer">
-      <p>Máis información en <a href="https://ourense.gal" target="_blank" rel="noopener">ourense.gal</a></p>
+      <p id="footer-info-link">Máis información en <a href="https://ourense.gal" target="_blank" rel="noopener">ourense.gal</a></p>
       <p class="copyright">Concello de Ourense &copy; 2026</p>
     </footer>
   </div>
 
   <!-- JavaScript App Logic -->
-  <script src="app.js"></script>
+  <script src="app.js?v=202606081820"></script>
 </body>
 </html>
